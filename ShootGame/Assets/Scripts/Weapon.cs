@@ -12,7 +12,7 @@ public class Weapon : MonoBehaviour {
 		
 	}
 	
-	public virtual void Attack(Enum_shotMode shotMode, bool _b_isEnemy)
+	public virtual void Attack(Enum_shotMode shotMode)
 	{
 
 	}

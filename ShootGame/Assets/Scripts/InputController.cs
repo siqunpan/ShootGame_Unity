@@ -22,8 +22,6 @@ public enum Enum_shotMode
 
 public class InputController : MonoBehaviour
 {
-	private bool b_isEnemyInputController = false;
-
 	private string s_currentMoveDirection = null;
 	private string s_latestMoveDirection = null;
 	private Enum_moveMode moveOrder = Enum_moveMode.Non;
@@ -45,12 +43,17 @@ public class InputController : MonoBehaviour
 	private ComboManager combo;
 
 	PlayerAvatar player = null;
+	private int i_sidePlayer = -1;
+
+	public void setSidePlayer(int _i_sidePlayer)
+	{
+		i_sidePlayer = _i_sidePlayer;
+	}
 
 	// Use this for initialization
 	void Start ()
 	{
 		player = this.gameObject.GetComponent<PlayerAvatar>();
-		b_isEnemyInputController = player.b_isEnemy;
 
 		moveEngine = this.GetComponent<MoveEngine> ();
 
@@ -166,14 +169,14 @@ public class InputController : MonoBehaviour
 				shotMode = Enum_shotMode.Non;
 			}
 
-			if(shotMode != Enum_shotMode.Non && canShot(shotMode, b_isEnemyInputController))
+			if(shotMode != Enum_shotMode.Non && canShot(shotMode))
 			{
-				weapon.Attack(shotMode, b_isEnemyInputController);
+				weapon.Attack(shotMode);
 			}
 		}
 	}
 
-	private bool canShot(Enum_shotMode shotMode, bool _b_isEnemy)
+	private bool canShot(Enum_shotMode shotMode)
 	{
 		bool b_canshot = false;
 

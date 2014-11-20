@@ -8,7 +8,7 @@ public class EnemyWeapon : Weapon {
 	
 	}
 
-	public override void Attack(Enum_shotMode shotMode, bool _b_isEnemy)
+	public override void Attack(Enum_shotMode shotMode)
 	{
 
 	}

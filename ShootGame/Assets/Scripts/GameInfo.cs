@@ -11,6 +11,7 @@ public class GameInfo : MonoBehaviour {
 	private string[] sArray_allPlayersNames = null;    // its length is i_maxNumOfPlayer+1 because 0 is the servr
 	private int[] iArray_allPlayersId = null;  //just used by server, its length is i_maxNumOfPlayer+1 because 0 is the servr, and the real id
 											//in network, the index of the array is i_idPlayer, attention with these two types of value
+	private int[] iArray_allPlayersSides;
 
 	public static GameInfo Instance
 	{
@@ -41,12 +42,14 @@ public class GameInfo : MonoBehaviour {
 		{
 			iArray_allPlayersId = new int[i_maxNumPlayers];
 			sArray_allPlayersNames = new string[i_maxNumPlayers];
+			iArray_allPlayersSides = new int[i_maxNumPlayers];
 		}
 
 		for(int i = 0; i < i_maxNumPlayers; ++i)
 		{
 			iArray_allPlayersId[i] = -1;
 			sArray_allPlayersNames[i] = null;
+			iArray_allPlayersSides[i] = -1;
 		}
 	}
 
@@ -78,6 +81,11 @@ public class GameInfo : MonoBehaviour {
 		return sArray_allPlayersNames;
 	}
 
+	public int[] getAllPlayersSides()
+	{
+		return iArray_allPlayersSides;
+	}
+
 	public int getPlayerIdInNetworkByIndex(int _i_idPlayerInGame)
 	{
 		return iArray_allPlayersId [_i_idPlayerInGame];
@@ -86,6 +94,11 @@ public class GameInfo : MonoBehaviour {
 	public string getPlayerNameByIndex(int _i_idPlayerInGame)
 	{
 		return sArray_allPlayersNames[_i_idPlayerInGame];
+	}
+
+	public int getPlayerSideByIndex(int _i_idPlayerInGame)
+	{
+		return iArray_allPlayersSides[_i_idPlayerInGame];
 	}
 
 	public void setWholeArrayPlayersId(int[] _iArray_playersId)
@@ -104,6 +117,14 @@ public class GameInfo : MonoBehaviour {
 		}
 	}
 
+	public void setWholeArrayPlayersSide(int[] _iArray_playersSides)
+	{
+		for(int i = 0; i < i_maxNumPlayers; ++i)
+		{
+			iArray_allPlayersSides[i] = _iArray_playersSides[i];
+		}
+	}
+
 	public void setPlayerIdInNetworkByIndex(int _i_idPlayerInGame, int _i_newIdPlayerInNetwork)
 	{
 		iArray_allPlayersId [_i_idPlayerInGame] = _i_newIdPlayerInNetwork;
@@ -112,6 +133,11 @@ public class GameInfo : MonoBehaviour {
 	public void setPlayerNameByIndex(int _i_idPlayerInGame, string _s_namePlayer)
 	{
 		sArray_allPlayersNames [_i_idPlayerInGame] = _s_namePlayer;
+	}
+
+	public void setPlayerSideByIndex(int _i_idPlayerInGame, int _i_sidePlayer)
+	{
+		iArray_allPlayersSides [_i_idPlayerInGame] = _i_sidePlayer;
 	}
 }
 

@@ -13,6 +13,7 @@ public class GameManager_V2 : MonoBehaviour {
 	private float f_timerLevel = 0f;
 	private string[] sArray_nameOfAllPlayers;
 	private int[] iArray_idOfAllPlayers;
+	private int[] iArray_sideOfAllPlayers;
 	private const int NEW_PLAYER_JOINED = 1;
 	private const int EXIST_PLAYER_EXITED = 2;
 
@@ -32,13 +33,15 @@ public class GameManager_V2 : MonoBehaviour {
 		public int i_numLives = -1;
 		public string s_playerName = null;
 //		public float f_healthCurrentLife = -1;
-		public int i_faction = -1; // for using in the future: player VS player
+		public int i_sidePlayer = -1; // for using in the future: player VS player
 		public GameObject go_player = null;
 	}
 
 	private PlayerInfo[] array_allPlayersInfos;
 	private int i_idMyPlayerInGame = -1;
 	private int i_idMyPlayerInNetwork = -1;
+
+	private InputController inputController;
 
 	private bool b_quitGame = false;   //player can set this in the inputController when clicking the quitGame button
 
@@ -56,6 +59,8 @@ public class GameManager_V2 : MonoBehaviour {
 
 	private void initGame()
 	{
+		inputController = FindObjectOfType (typeof(InputController)) as InputController;
+
 		gameInfo = FindObjectOfType (typeof(GameInfo)) as GameInfo;
 		i_maxNumPlayers = gameInfo.I_maxNumPlayers;
 		playMode = gameInfo.Enum_playMode;
@@ -65,7 +70,10 @@ public class GameManager_V2 : MonoBehaviour {
 		
 		iArray_idOfAllPlayers = new int[i_maxNumPlayers];
 		iArray_idOfAllPlayers = gameInfo.getAllPlayersId ();;
-		
+
+		iArray_sideOfAllPlayers = new int[i_maxNumPlayers];
+		iArray_sideOfAllPlayers = gameInfo.getAllPlayersSides ();
+
 		array_allPlayersInfos = new PlayerInfo[i_maxNumPlayers];
 		for(int i = 0; i < i_maxNumPlayers; ++i)    //index 0 is the server, others are the clients
 		{
@@ -76,12 +84,13 @@ public class GameManager_V2 : MonoBehaviour {
 			array_allPlayersInfos[i].i_numLives = GlobalVariables.I_MAX_NUM_LIVES_PLAYER;
 			array_allPlayersInfos[i].s_playerName = sArray_nameOfAllPlayers[i];
 //			array_allPlayersInfos[i].f_healthCurrentLife = GlobalVariables.F_FULL_HEALTH_PLAYER;   //need assign value after
-			array_allPlayersInfos[i].i_faction = 0;
+			array_allPlayersInfos[i].i_sidePlayer = iArray_sideOfAllPlayers[i];
 			array_allPlayersInfos[i].go_player = null;
 
 			if(iArray_idOfAllPlayers[i] == int.Parse(Network.player.ToString()))
 			{
 				i_idMyPlayerInGame = i;
+				inputController.setSidePlayer (array_allPlayersInfos[i_idMyPlayerInGame].i_sidePlayer);
 			}
 		}
 
@@ -481,7 +490,7 @@ public class GameManager_V2 : MonoBehaviour {
 			array_allPlayersInfos[_i_idUpdatePlayerInGame].i_numLives = GlobalVariables.I_MAX_NUM_LIVES_PLAYER;
 			array_allPlayersInfos[_i_idUpdatePlayerInGame].s_playerName = null;
 //			array_allPlayersInfos[_i_idUpdatePlayerInGame].f_healthCurrentLife = GlobalVariables.F_FULL_HEALTH_PLAYER;   //need assign value after
-			array_allPlayersInfos[_i_idUpdatePlayerInGame].i_faction = 0;
+			array_allPlayersInfos[_i_idUpdatePlayerInGame].i_sidePlayer = -1;
 
 			if(array_allPlayersInfos[_i_idUpdatePlayerInGame].go_player != null)
 			{

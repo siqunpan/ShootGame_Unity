@@ -305,6 +305,7 @@ public class GUIManager : MonoBehaviour {
 				{
 					sArray_allPlayersNames[i] = gameInfo.getPlayerNameByIndex(i);
 					iArray_allPlayersId[i] = gameInfo.getPlayerIdInNetworkByIndex(i);
+					iArray_allPlayersSides[i] = gameInfo.getPlayerSideByIndex(i);
 				}
 
 				enum_menuType = Enum_menuType.RoomMenu;
@@ -344,6 +345,7 @@ public class GUIManager : MonoBehaviour {
 				gameInfo.Enum_playMode = enum_playMode;
 				gameInfo.setWholeArrayPlayersName(sArray_allPlayersNames);
 				gameInfo.setWholeArrayPlayersId(iArray_allPlayersId);
+				gameInfo.setWholeArrayPlayersSide(iArray_allPlayersSides);
 				gameInfo.Enum_quitGameMode = Enum_quitGameMode.Non;
 			}
 			else
@@ -354,6 +356,7 @@ public class GUIManager : MonoBehaviour {
 				iArray_allPlayersId[0] = 0;
 				gameInfo.setWholeArrayPlayersName(sArray_allPlayersNames);
 				gameInfo.setWholeArrayPlayersId(iArray_allPlayersId);
+				gameInfo.setWholeArrayPlayersSide(iArray_allPlayersSides);
 				gameInfo.Enum_quitGameMode = Enum_quitGameMode.Non;
 			}
 		}
