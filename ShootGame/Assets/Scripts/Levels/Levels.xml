@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <LevelDescription Name="First level" Duration="20">   
+    <EnemyDescription Type="Default">
+      <SpawnDate>2</SpawnDate>
+      <SpawnPosition>
+        <x>-17</x>
+        <y>1</y>
+      </SpawnPosition>
+      <PrefabPath>Prefabs/Enemy_01</PrefabPath>
+    </EnemyDescription>
+    
+    <EnemyDescription Type="Default">
+      <SpawnDate>4</SpawnDate>
+      <SpawnPosition>
+        <x>-17</x>
+        <y>2</y>
+      </SpawnPosition>
+      <PrefabPath>Prefabs/Enemy_01</PrefabPath>
+    </EnemyDescription>
+    
+    <EnemyDescription>
+      <SpawnDate>6</SpawnDate>
+      <SpawnPosition>
+        <x>-17</x>
+        <y>3</y>
+      </SpawnPosition>
+      <PrefabPath>Prefabs/Enemy_02</PrefabPath>
+    </EnemyDescription>
+    
+    <EnemyDescription>
+      <SpawnDate>8</SpawnDate>
+      <SpawnPosition>
+        <x>-16</x>
+        <y>1.5</y>
+      </SpawnPosition>
+      <PrefabPath>Prefabs/Enemy_02</PrefabPath>
+    </EnemyDescription>
+    
+    <EnemyDescription>
+      <SpawnDate>10</SpawnDate>
+      <SpawnPosition>
+        <x>-16</x>
+        <y>2.8</y>
+      </SpawnPosition>
+      <PrefabPath>Prefabs/Enemy_02</PrefabPath>
+    </EnemyDescription>
+    
+    <EnemyDescription>
+      <SpawnDate>12</SpawnDate>
+      <SpawnPosition>
+        <x>-16</x>
+        <y>2.8</y>
+      </SpawnPosition>
+      <PrefabPath>Prefabs/Enemy_02</PrefabPath>
+    </EnemyDescription>
+  </LevelDescription>
+  
+  
+  <LevelDescription Name="Second level" Duration="10">
+	<EnemyDescription Type="Default">
+      <SpawnDate>2</SpawnDate>
+      <SpawnPosition>
+        <x>-17</x>
+        <y>1</y>
+      </SpawnPosition>
+      <PrefabPath>Prefabs/Enemy_01</PrefabPath>
+    </EnemyDescription>
+    
+    <EnemyDescription Type="Default">
+      <SpawnDate>4</SpawnDate>
+      <SpawnPosition>
+        <x>-17</x>
+        <y>2</y>
+      </SpawnPosition>
+      <PrefabPath>Prefabs/Enemy_01</PrefabPath>
+    </EnemyDescription>       
+  </LevelDescription>
+  
+</Datatable>

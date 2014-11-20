@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\TD_Kinect\Assets\Script\Kinect Projet\HandInputManager.cs">
+    <Files>
+      <File FileName="..\TD_Kinect\Assets\Script\Kinect Projet\HandInputManager.cs" Line="35" Column="41" />
+      <File FileName="..\TD_Kinect\Assets\Script\Kinect Projet\GameManager.cs" Line="59" Column="2" />
+      <File FileName="..\TD_Kinect\Assets\Script\Kinect Projet\BirdsFactory.cs" Line="143" Column="20" />
+      <File FileName="..\TD_Kinect\Assets\Script\Kinect Projet\GUIManager.cs" Line="151" Column="16" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

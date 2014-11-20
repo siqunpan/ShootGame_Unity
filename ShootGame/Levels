@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LevelDescription xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Duration="20" Name="First level">
+  <EnemyDescription SpawnDate="0">
+    <SpawnPosition>
+      <x>10</x>
+      <y>4</y>
+    </SpawnPosition>
+    <PrefabPath>Prefabs/Enemy_01</PrefabPath>
+  </EnemyDescription>
+  <EnemyDescription SpawnDate="0">
+    <SpawnPosition>
+      <x>10</x>
+      <y>-4</y>
+    </SpawnPosition>
+    <PrefabPath>Prefabs/Enemy_02</PrefabPath>
+  </EnemyDescription>
+</LevelDescription>
